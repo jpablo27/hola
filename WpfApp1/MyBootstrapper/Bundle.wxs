@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Bundle Name="MyBootstrapper"
+	Version="1.0.0.0"
+	Manufacturer="WiX Tests"
+	UpgradeCode="416b6bbf-2beb-4187-9f83-cdb764db2840">
+		<BootstrapperApplicationRef
+		Id="ManagedBootstrapperApplicationHost">
+			<Payload
+			SourceFile="$(var.CustomBA.TargetDir)CustomBA.dll" />
+			<Payload SourceFile=
+"$(var.CustomBA.TargetDir)BootstrapperCore.config" />
+			<Payload SourceFile=
+"$(var.CustomBA.TargetDir)Microsoft.Practices.Prism.dll" />
+		</BootstrapperApplicationRef>
+		<WixVariable Id="WixMbaPrereqLicenseUrl" Value=""/>
+		<WixVariable Id="WixMbaPrereqPackageId" Value=""/>
+		<Chain>
+			<ExePackage SourceFile="D:\Downloads\vcredist_x64.exe" />
+		</Chain>
+	</Bundle>
+</Wix>
